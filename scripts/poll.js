@@ -90,7 +90,7 @@ function priceToFloat(s) {
         const corrM = blockStr.match(/(\d+)\s*correspondance/i);
         const direct = /\b(direct|trajet direct)\b/i.test(blockStr);
         const corr = direct ? 0 : (corrM ? parseInt(corrM[1], 10) : null);
-        const complet = /complet/i.test(blockStr);
+        const complet = /complet|non\s+r[ée]servable/i.test(blockStr);
 
         // Build class options: each €-price line, paired with the nearest preceding
         // seats warning ("(\d+) place(s)") within 4 lines (null = no constraint).
